@@ -1,4 +1,7 @@
 {
+  "4.1.22": {
+    "en": "Security: updated dependencies (axios, undici, form-data) to address known vulnerabilities."
+  },
   "4.1.21": {
     "en": "Fix: update loop and pause_update_loop now catch unhandled rejections from updateDevice() to prevent app crashes on detached async callbacks. Contributed by Coert Noordermeer."
   },
