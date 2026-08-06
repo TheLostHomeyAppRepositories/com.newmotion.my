@@ -1,4 +1,7 @@
 {
+  "4.1.23": {
+    "en": "Adding a device no longer fails with an unexplained error when your account returns no chargepoints. Charging points that report no session data no longer flood the log with errors. Also includes a security dependency update."
+  },
   "4.1.22": {
     "en": "Security: updated dependencies (axios, undici, form-data) to address known vulnerabilities."
   },
