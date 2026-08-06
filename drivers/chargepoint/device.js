@@ -321,6 +321,10 @@ class Chargepoint extends Homey.Device {
             console.log('✅ 0.10: Chargepoint power measurement details: ');
             let session_details = await this.chargepointService.SessionLog(chargePoint);
             //console.dir(session_details )
+            if (!Array.isArray(session_details) || session_details.length === 0) {
+                console.log('⚠️ 0.11: No session details available, skipping power measurements');
+                return null;
+            }
             console.log('✅ 0.11: Chargepoint session details retrieved: last '+session_details.length);
             //We need to analyze the last two lines, if state is ready
             let last_info = session_details.slice(0,2);

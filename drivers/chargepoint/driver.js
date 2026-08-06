@@ -196,6 +196,19 @@ class ChargepointDriver extends Homey.Driver {
             try{
                 this.chargepointService.list()
                     .then(function (points) {
+                        if (points === null) {
+                            console.log('Could not retrieve the chargepoint list from the account');
+                            mydevices = [];
+                            session.showView('error');
+                            return;
+                        }
+                        if (points.length === 0) {
+                            //A valid but empty account, let the user pick from an empty list instead of an error
+                            console.log('The account contains no chargepoints');
+                            mydevices = [];
+                            session.showView('list_devices');
+                            return;
+                        }
                         //A charge point that we could not get details for might be returned as null
                         const devices = points.filter(function(device) {
                             if (device === null) {
